@@ -1,18 +1,25 @@
 let btn = document.querySelector("#btn");
-let btnClear = document.querySelectorAll("#list li > button");
+let btnClear = [...document.querySelectorAll("#list li > button")];
 let count = 0;
-
+let sum = [];
 
 function clear(string){
-    string.forEach(n => {
-        n.addEventListener("click", () => {
-            let id = n.getAttribute("id");
-            console.log(id);
-           // ul.removeChild(li);
-        })
+    string.addEventListener("click", () => {
+        console.log(string.getAttribute("id"));
+        let ul = document.getElementById("list");
+        let list = document.getElementById(string.getAttribute("id"));
+        ul.removeChild(list);
     })
 }
-clear(btnClear);
+
+
+function total(num){
+    let total = document.getElementById("total");
+    sum.push(+num);
+    console.log(sum)
+    let totalNum = sum.reduce( (t,n) => t + n);
+    total.textContent = "Total" + ":" + totalNum;
+}
 
 btn.addEventListener("click", () => {
 
@@ -21,8 +28,10 @@ btn.addEventListener("click", () => {
     let expense = add("expense");
 
     list(date,product,expense);
-    btnClear = document.querySelectorAll("#list li > button");
-    clear(btnClear);
+    total(expense);
+    document.getElementById("product").value = "";
+    document.getElementById("date").value = "";
+    document.getElementById("expense").value = "";
 
 
 })
@@ -43,6 +52,8 @@ function list(s1,s2,s3){
     btn.textContent = "Clear";
     btn.setAttribute("id",count);
     li.setAttribute("id",count);
+
+    clear(btn);
 
     div1.textContent = s1;
     div2.textContent = s2;

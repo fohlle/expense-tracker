@@ -48,3 +48,7 @@ body{
     column-gap: 60px;
     color:white;
 }
+#total{
+    font-size: 20px;
+    float:right;
+}
