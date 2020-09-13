@@ -1,0 +1,41 @@
+html{
+    height: 100%;
+}
+body{
+    background: linear-gradient(to bottom left, lightblue , green);
+}
+#container{
+    height:400px;
+    width:600px;
+    margin: auto;
+    margin-top: 200px;
+    text-align: center;
+}
+#container #date, #expense{
+    height:30px;
+    width:100px;
+}
+#product{
+    height:30px;
+    width:300px;
+}
+#btn{
+    height:35px;
+}
+#line{
+    margin:auto;
+    height:20px;
+    border-bottom:black solid 1px;
+    width:540px;
+}
+#list li{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    column-gap: 150px;
+    border-bottom:black dotted 1px;
+    list-style: none;
+    font-size: 25px;
+    color: black;
+    margin-top:20px;
+}
