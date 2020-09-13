@@ -5,18 +5,31 @@ let sum = [];
 
 function clear(string){
     string.addEventListener("click", () => {
-        console.log(string.getAttribute("id"));
         let ul = document.getElementById("list");
         let list = document.getElementById(string.getAttribute("id"));
         ul.removeChild(list);
+        let test = list.querySelector(".hi").textContent;
+        remove(test);
     })
+}
+function remove(num){
+    let total = document.getElementById("total");
+        sum.map( (n,i,a) => {
+        if(+num === n){
+            console.log(n)
+            sum.splice(i,1);
+        }
+    })
+    if(sum.length === 0)return;
+    let tots =  sum.reduce( (t,n) => t + n);
+    total.textContent = "Total" + ":" + tots;
+
 }
 
 
 function total(num){
     let total = document.getElementById("total");
     sum.push(+num);
-    console.log(sum)
     let totalNum = sum.reduce( (t,n) => t + n);
     total.textContent = "Total" + ":" + totalNum;
 }
@@ -49,11 +62,15 @@ function list(s1,s2,s3){
     let div3 = document.createElement("div");
     let btn = document.createElement("button");
 
+    div3.setAttribute("class","hi");
+
     btn.textContent = "Clear";
     btn.setAttribute("id",count);
     li.setAttribute("id",count);
 
     clear(btn);
+    let date = new Date();
+    if(s1 === "")s1 = date.getFullYear() + "-"+ (date.getMonth()+1) + "-" + date.getDate();
 
     div1.textContent = s1;
     div2.textContent = s2;
