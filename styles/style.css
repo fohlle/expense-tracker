@@ -13,11 +13,11 @@ body{
 }
 #container #date, #expense{
     height:30px;
-    width:100px;
+    width:150px;
 }
 #product{
     height:30px;
-    width:300px;
+    width:200px;
 }
 #btn{
     height:35px;
@@ -29,13 +29,22 @@ body{
     width:540px;
 }
 #list li{
+    border-bottom:dotted 1px black;
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    column-gap: 150px;
-    border-bottom:black dotted 1px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
     list-style: none;
     font-size: 25px;
     color: black;
-    margin-top:20px;
+    height:50px;
+    background-color: rgba(226, 211, 211,0.4);
+}
+
+#con2{
+    width:600px;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    font-size: 20px;
+    column-gap: 60px;
+    color:white;
 }
